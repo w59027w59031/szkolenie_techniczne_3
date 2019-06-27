@@ -1,0 +1,17 @@
+﻿@model W59027_W59031.Models.UzytkownicyAddModel
+
+@{
+    ViewBag.Title = "Zalogowano";
+
+}
+
+    <h2>Zalogowano</h2>
+@using (Html.BeginForm("Index", "Home"))
+{
+
+<div class="form-group">
+    Użytkownicy<br />
+    @Html.ListBoxFor(m => m.Uzytkownicy, Model.Uzytkownicy, new { size = 10 })
+</div>
+
+}
