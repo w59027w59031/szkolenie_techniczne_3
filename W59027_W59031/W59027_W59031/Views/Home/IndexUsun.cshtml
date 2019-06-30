@@ -1,0 +1,28 @@
+﻿@model W59027_W59031.Models.UzytkownicyAddModel
+
+@{
+    ViewBag.Title = "Usun";
+
+}
+
+<h2>Zarejestruj</h2>
+@using (Html.BeginForm("IndexUsun", "Home"))
+{
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.Uzytkownik.login, new { @class = "control-label" })
+
+        @Html.TextBoxFor(x => x.Uzytkownik.login, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Uzytkownik.login)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Uzytkownik.haslo, new { @class = "control-label" })
+
+        @Html.PasswordFor(x => x.Uzytkownik.haslo, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Uzytkownik.haslo)
+    </div>
+    <div class="form-group" style="width:100px;">
+        <input type="submit" value="Zarejestruj" class="btn btn-primary" width="200" />
+        @Html.ActionLink("Powrót", "Index", "Home", new object { }, new { @class = "list-group-item list-group-item-action bg-dark" })
+    </div>
+}

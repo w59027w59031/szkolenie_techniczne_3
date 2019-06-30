@@ -11,17 +11,38 @@ namespace W59027_W59031.Models
     public class UzytkownicyAddModel
     {
         public Uzytkownicy Uzytkownik { get; set; }
-        public List<SelectListItem> Uzytkownicy;
+        public List<Uzytkownicy> Uzytkownicy;
         public UzytkownicyAddModel()
         {
-            Uzytkownicy = new List<SelectListItem>();
+            Uzytkownicy = new List<Uzytkownicy>();
             IList<Uzytkownicy> aaa = new UzytkownicyRepository().GetUzytkownicy();
-            foreach(var a in aaa)
+            foreach (var a in aaa)
             {
-                Uzytkownicy.Add(new SelectListItem()
+                Uzytkownicy.Add(new Uzytkownicy()
                 {
-                    Text = a.login,
-                    Value = a.Id
+                    Id = a.Id,
+                    login = a.login,
+                    haslo = a.haslo,
+                    data_utworzenia = a.data_utworzenia
+                });
+            }
+        }
+        public UzytkownicyAddModel(string id = "")
+        {
+            if (id != null && id != "" && id.Length > 0)
+            {
+                Uzytkownik = new UzytkownicyRepository().GetUzytkownik(id);
+            }
+            Uzytkownicy = new List<Uzytkownicy>();
+            IList<Uzytkownicy> aaa = new UzytkownicyRepository().GetUzytkownicy();
+            foreach (var a in aaa)
+            {
+                Uzytkownicy.Add(new Uzytkownicy()
+                {
+                    Id = a.Id,
+                    login = a.login,
+                    haslo = a.haslo,
+                    data_utworzenia = a.data_utworzenia
                 });
             }
         }

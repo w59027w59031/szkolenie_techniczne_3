@@ -169,6 +169,8 @@
     <Content Include="scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\IndexLogged.cshtml" />
     <Content Include="Views\Home\IndexRegister.cshtml" />
+    <Content Include="Views\Home\IndexEdit.cshtml" />
+    <Content Include="Views\Home\IndexUsun.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

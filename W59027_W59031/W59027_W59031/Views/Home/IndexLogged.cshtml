@@ -10,8 +10,39 @@
 {
 
 <div class="form-group">
-    Użytkownicy<br />
-    @Html.ListBoxFor(m => m.Uzytkownicy, Model.Uzytkownicy, new { size = 10 })
+    <table>
+        <thead>
+            <tr>
+                <th>Identyfikator</th>
+                <th>Login</th>
+                <th>Data utworzenia</th>
+                <th>Usuwanie</th>
+                <th>Edycja</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Uzytkownicy)
+            {
+            <tr>
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                    @item.login
+                </td>
+                <td>
+                    @item.data_utworzenia
+                </td>
+                <td>
+                    @Html.ActionLink("Usuń", "IndexLogged", new { ID = item.Id,DelEd="0" })
+                </td>
+                <td>
+                    @Html.ActionLink("Edytuj", "IndexEdit", new { ID = item.Id,DelEd="1" })
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
 </div>
 
 }
